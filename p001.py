@@ -9,10 +9,4 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-s = 0
-
-for i in range(3, 1000):
-  if i % 3 == 0 or i % 5 == 0:
-    s += i
-
-print('Sum:', s)
+print('Sum:', sum([x for x in range(3, 1000) if x % 3 == 0 or x % 5 == 0]))
