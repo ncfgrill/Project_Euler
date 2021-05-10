@@ -11,9 +11,4 @@
 
 from math import factorial
 
-n, s = str(factorial(100)), 0
-
-for d in n:
-  s += int(d)
-
-print('Sum:', s)
+print('Sum:', sum([int(d) for d in str(factorial(100))]))
