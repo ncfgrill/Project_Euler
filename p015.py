@@ -14,11 +14,11 @@
 d, n, c = 40, 20, 1
 
 while d > n:
-  c *= d
-  d -= 1
+    c *= d
+    d -= 1
 
 while n > 1:
-  c //= n
-  n -= 1
+    c //= n
+    n -= 1
 
 print('Routes:', c)
