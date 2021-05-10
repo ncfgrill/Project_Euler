@@ -31,33 +31,25 @@ grid = [[8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8],
         [20,73,35,29,78,31,90,1,74,31,49,71,48,86,81,16,23,57,5,54],
         [1,70,54,71,83,51,54,69,16,92,33,48,61,43,52,1,89,19,67,48]]
 
-prod = 0
-row, col = len(grid), len(grid[0])
+prod, row, col = 0, len(grid), len(grid[0])
 
 for r in range(row):
-  for c in range(col):
-    # Check row
-    if c < col - 3:
-      save = grid[r][c] * grid[r][c+1] * grid[r][c+2] * grid[r][c+3]
-      if save > prod:
-        prod = save
-    
-    # Check col
-    if r < row - 3:
-      save = grid[r][c] * grid[r+1][c] * grid[r+2][c] * grid[r+3][c]
-      if save > prod:
-        prod = save
-
-    # Check \ diagonal
-    if r < row - 3 and c < col - 3:
-      save = grid[r][c] * grid[r+1][c+1] * grid[r+2][c+2] * grid[r+3][c+3]
-      if save > prod:
-        prod = save
-
-    # Check / diagonal
-    if r < row - 3 and c > 2:
-      save = grid[r][c] * grid[r+1][c-1] * grid[r+2][c-2] * grid[r+3][c-3]
-      if save > prod:
-        prod = save
+    for c in range(col):
+        # Check row
+        if c < col - 3:
+            save = grid[r][c] * grid[r][c+1] * grid[r][c+2] * grid[r][c+3]
+            if save > prod: prod = save
+        # Check col
+        if r < row - 3:
+            save = grid[r][c] * grid[r+1][c] * grid[r+2][c] * grid[r+3][c]
+            if save > prod: prod = save
+        # Check \ diagonal
+        if r < row - 3 and c < col - 3:
+            save = grid[r][c] * grid[r+1][c+1] * grid[r+2][c+2] * grid[r+3][c+3]
+            if save > prod: prod = save
+        # Check / diagonal
+        if r < row - 3 and c > 2:
+            save = grid[r][c] * grid[r+1][c-1] * grid[r+2][c-2] * grid[r+3][c-3]
+            if save > prod: prod = save
 
 print('Greatest product:', prod)
