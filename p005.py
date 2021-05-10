@@ -11,17 +11,16 @@
 ################################################################################
 
 div = [20, 19, 18, 17, 16, 15, 14, 13, 11]
-n = 20
+initial = 20 * 19 * 17 * 13 * 11
+n = initial
 
 while True:
-  check = 0
-  for d in div:
-    if n % d != 0:
-      n += 20
-      break
-    else:
-      check += 1
-  if check == 9:
-    break
+    check = 0
+    for d in div:
+        if n % d != 0:
+            n += initial
+            break
+        else: check += 1
+    if check == len(div): break
 
 print('Smallest positive number:', n)
