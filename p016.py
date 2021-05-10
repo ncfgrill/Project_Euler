@@ -9,8 +9,4 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-d, s = str(2**1000), 0
-for i in range(len(d)):
-  s += int(d[i])
-
-print('Sum:', s)
+print('Sum:', sum([int(d) for d in str(2**1000)]))
