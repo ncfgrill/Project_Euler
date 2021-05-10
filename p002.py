@@ -15,9 +15,9 @@ d1, d2, = 1, 1
 d3 = d1 + d2
 
 while d3 < 4*(10**6):
-  if d3 % 2 == 0:
-    s += d3
-  d1, d2 = d2, d3
-  d3 = d1 + d2
+    if d3 % 2 == 0:
+        s += d3
+    d1, d2 = d2, d3
+    d3 = d1 + d2
 
 print('Sum:', s)
