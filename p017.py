@@ -17,24 +17,19 @@ hundred = 7
 
 n, s = 1, 0
 while n < 1000:
-  a, b = n % 100, n // 100
-  if a != 0:
-    if a < 10:
-      s += ones[a]
-    elif a < 20:
-      s += tens[a]
-    else:
-      c = a // 10
-      if c != 0:
-        s += tens[c]
-      a %= 10
-      if a != 0:
-        s += ones[a]
-  if b != 0:
-    s += ones[b]
-    s += hundred
-  n += 1
-  print(s)
+    a, b = n % 100, n // 100
+    if a != 0:
+        if a < 10:   s += ones[a]
+        elif a < 20: s += tens[a]
+        else:
+            c = a // 10
+            if c != 0: s += tens[c]
+            a %= 10
+            if a != 0: s += ones[a]
+    if b != 0:
+        s += ones[b]
+        s += hundred
+    n += 1
 
 # Add 'and' for each number 100-999 excluding base values (100, 200, etc.)
 s += (99 * 9 * 3)
