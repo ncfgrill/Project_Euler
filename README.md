@@ -1,2 +1,5 @@
 # Project_Euler
-Assortment of problems found at: https://projecteuler.net/
+
+Solutions to an assortment of Project Euler problems, written in Python.
+
+Problems found at: https://projecteuler.net/
