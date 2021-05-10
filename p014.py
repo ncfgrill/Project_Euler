@@ -9,29 +9,21 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-vals = {}
-n, hi = 2, 0
+vals, n = {}, 2
 
 for i in range(2, 1000000):
-  terms = 1
-  n = i
+    terms, n = 1, i
 
-  while n != 1:
-    if n % 2 == 0:
-      n //= 2
-    else:
-      n = 3*n + 1
+    while n != 1:
+        if n % 2 == 0: n //= 2
+        else:          n = 3*n + 1
 
-    if n in vals:
-      terms += vals[n]
-      break
-    terms += 1
+        if n in vals:
+            terms += vals[n]
+            break
+        terms += 1
 
-  vals[i] = terms
-  
-  if terms > hi:
-    hi = terms
+    vals[i] = terms
 
 vals = dict(sorted(vals.items(), key=lambda item: item[1], reverse = True))
-nums = list(vals.keys())
-print('Starting point:', nums[0])
+print('Starting point:', list(vals.key())[0])
