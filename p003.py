@@ -1,0 +1,41 @@
+################################################################################
+#                          P3: Largest prime factor                            #
+################################################################################
+#                                                                              #
+#              What is the largest prime factor of 600851475143?               #
+#                                                                              #
+################################################################################
+#                     Problem found at projecteuler.net                        #
+#                              Author: ncfgrill                                #
+################################################################################
+
+import math
+
+def check_prime(num):
+  if num <= 3:
+    return num > 1
+  if num % 6 != 1 and num % 6 != 5:
+    return False
+  for i in range(2, math.ceil(math.sqrt(num)) + 1):
+    if num % i == 0:
+      return False
+
+  return True
+
+def get_factor():
+  d = 600851475143
+  factors = []
+  p = 3
+  while d != 1:
+    if check_prime(p):
+      while True:
+        if d % p != 0:
+          break
+        d /= p
+        if p not in factors:
+          factors.append(p)
+    p += 2
+
+  return factors[-1]
+
+print('Largest prime factor:', get_factor())
