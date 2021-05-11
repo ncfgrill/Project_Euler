@@ -9,10 +9,4 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-n, s = 1, 0
-
-while n <= 1000:
-  s += n**n
-  n += 1
-
-print('Last 10 digits:', s % 10000000000)
+print('Last 10 digits:', str(sum(i ** i for i in range(1, 1001)))[-10:])
