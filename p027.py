@@ -14,41 +14,33 @@
 from math import ceil, sqrt
 
 def check_prime(num):
-  if num <= 3:
-    return num > 1
-  if num % 6 != 1 and num % 6 != 5:
-    return False
-  for i in range(2, ceil(sqrt(num)) + 1):
-    if num % i == 0:
-      return False
+    if num <= 3:                        return num > 1
+    elif num % 6 != 1 and num % 6 != 5: return False
+  
+    for i in range(2, ceil(sqrt(num)) + 1):
+        if num % i == 0: return False
 
-  return True
+    return True
 
 def evaluate(n, a, b):
-  return n**2 + a*n + b
+    return n**2 + a*n + b
 
 def find_primes():
-  most = 0
-  save_a, save_b = 0, 0
-  for a in range(-999, 1000):
-    for b in range(-999, 1000, 2):
-      if a != 0:
-        m = abs(a) % abs(b) if abs(a) > abs(b) else abs(b) % abs(a)
-        if m == 0:
-          continue
+    most, save_a, save_b = 0, 0, 0
+    for a in range(-999, 1000):
+        for b in range(-999, 1000, 2):
+            if a != 0:
+                m = abs(a) % abs(b) if abs(a) > abs(b) else abs(b) % abs(a)
+                if m == 0: continue
 
-      n, primes = 0, 0
-      while True:
-        if check_prime(evaluate(n, a, b)):
-          primes += 1
-          n += 1
-        else:
-          break
+            n, primes = 0, 0
+            while True:
+                if check_prime(evaluate(n, a, b)):
+                    primes += 1
+                    n += 1
+                else: break
       
-      if primes > most:
-        most = primes
-        save_a = a
-        save_b = b
-  return save_a * save_b
+            if primes > most: most, save_a, save_b = primes, a, b
+    return save_a * save_b
 
 print('Coefficent product:', find_primes())
