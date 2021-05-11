@@ -37,4 +37,4 @@ def find_primes(p):
 
     return 1 if c == save else 0
 
-print('Primes:', 1+sum(list(map(find_primes, [x for x in range(3, 1000000, 2)]))))
+print('Primes:', 1 + sum(map(find_primes, [x for x in range(3, 1000000, 2)])))
