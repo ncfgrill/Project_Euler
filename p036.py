@@ -11,28 +11,19 @@
 ################################################################################
 
 def check_palindrome(num):
-  return num == num[::-1]
+    return num == num[::-1]
 
 def to_binary(num):
-  b = ''
-  while num > 0:
-    if num % 2 == 0:
-      b = '0' + b
-    else:
-      b = '1' + b
-    num //= 2
+    b = ''
+    while num > 0:
+        if num % 2 == 0: b = '0' + b
+        else:            b = '1' + b
+        num //= 2
 
-  return b
+    return b
 
-def find_palindromes():
-  s = 0
-  for d in range(1, 1000000):
-    if not check_palindrome(str(d)):
-      continue
-    if not check_palindrome(to_binary(d)):
-      continue
-    s += d
+def find_palindromes(num):
+    return num if check_palindrome(str(num)) and\
+                  check_palindrome(to_binary(num)) else 0
 
-  return s
-
-print('Sum:', find_palindromes())
+print('Sum:', sum(list(map(find_palindromes, [x for x in range(1, 1000000)]))))
