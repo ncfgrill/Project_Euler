@@ -11,16 +11,13 @@
 ################################################################################
 
 def calculate(num):
-  s = 0
-  for i in num:
-    s += int(i) ** 5
-  return s
+    s = 0
+    for i in str(num): s += int(i) ** 5
+    return num if num == s else 0
 
 def find_fifths():
-  s = 0
-  for d in range(10, 1000000):
-    if d == calculate(str(d)):
-      s += d
-  return s
+    nums = [d for d in range(10, 1000000)]
+    nums = map(calculate, nums)
+    return sum(list(nums))
 
 print('Sum:', find_fifths())
