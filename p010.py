@@ -20,4 +20,4 @@ def check_prime(num):
 
     return num
 
-print('Sum:', 2 + sum(list(map(check_prime, [i for i in range(3,2000000,2)]))))
+print('Sum:', 2 + sum(map(check_prime, [i for i in range(3,2000000,2)])))
