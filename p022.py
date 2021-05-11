@@ -15,20 +15,16 @@ num, base = 0, ord('A') - 1
 
 def get_sum(name):
     global num, base
-    
+
     s, i = 0, 1
     while name[i] != '"':
         s += ord(name[i]) - base
         i += 1
-    
+
     num += 1
     return s * num
 
-def read_file():
-    with open('p022_names.txt', 'r') as f:
-        names = f.readline().split(',')
-        names.sort()
-        sums = map(get_sums, names)
-        return sum(list(sums))
-
-print('Total:', read_file())
+with open('p022_names.txt', 'r') as f:
+    names = f.readline().split(',')
+    names.sort()
+    print('Total:', sum(list(map(get_sum, names))))
