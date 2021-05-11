@@ -9,20 +9,14 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-tri_nums, base = [(n*(n+1)//2) for n in range(1, 101)], ord('A') - 1
+tri_nums, base = {(n*(n+1)//2) for n in range(1, 101)}, ord('A') - 1
 
 def get_total(word):
-    global base
-
     s, i = 0, 1
     while word[i] != '"':
         s += ord(word[i]) - base
         i += 1
     return 1 if s in tri_nums else 0
 
-def read_file():
-    with open('p042_words.txt', 'r') as f:
-        words = f.readline().split(',')
-        return sum(list(map(get_total, words)))
-
-print('Total:', find_total())
+with open('p042_words.txt', 'r') as f:
+    print('Triangle words:', sum(map(get_total, f.readline().split(','))))
