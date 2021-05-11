@@ -9,12 +9,8 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-def check_if_pal(num):
-    l = len(num)
-    for i in range(l // 2):
-        if num[i] != num[l - i - 1]: return False
-
-    return True
+def check_palindrome(num):
+    return num == num[::-1]
 
 def find_pal():
     i, hi = 100, 0
@@ -23,7 +19,7 @@ def find_pal():
         j = 100
         while j < 1000:
             p = i * j
-            if p > hi and check_if_pal(str(p)): hi = p
+            if p > hi and check_palindrome(str(p)): hi = p
             j += 1
         i += 1
 
