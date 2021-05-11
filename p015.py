@@ -10,15 +10,14 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-# 40 choose 20
-d, n, c = 40, 20, 1
+from math import prod
 
-while d > n:
-    c *= d
-    d -= 1
+# d choose n
+d, n = 40, 20
 
-while n > 1:
-    c //= n
-    n -= 1
+# d!
+c = prod(i for i in range(1, d+1))
+# n!(d-n)!
+c //= (prod(j for j in range(1, n+1)) * prod(k for k in range(1, d-n+1)))
 
 print('Routes:', c)
