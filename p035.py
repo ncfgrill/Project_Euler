@@ -12,41 +12,29 @@
 from math import ceil, sqrt
 
 def check_prime(num):
-  if num <= 3:
-    return num > 1
-  if num % 6 != 1 and num % 6 != 5:
-    return False
-  for i in range(2, ceil(sqrt(num)) + 1):
-    if num % i == 0:
-      return False
+    if num <= 3:                        return num > 1
+    elif num % 6 != 1 and num % 6 != 5: return False
+    
+    for i in range(2, ceil(sqrt(num)) + 1):
+        if num % i == 0: return False
 
-  return True
+    return True
 
 def circle_num(num):
-  num = num[1:] + num[0]
-  return int(num)
+    return int(num[1:] + num[0])
 
-def find_primes():
-  primes = 1 # starting with 2
-  for p in range(3, 1000000):
+def find_primes(p):
     if '0' in str(p) or '2' in str(p) or\
        '4' in str(p) or '6' in str(p) or '8' in str(p):
-      continue
-    if not check_prime(p):
-      continue
+        return 0
+    if not check_prime(p): return 0
 
     save = p
     c = save
     while True:
-      c = circle_num(str(c))
-      if c == save:
-        break
-      if not check_prime(c):
-        break
+        c = circle_num(str(c))
+        if c == save or not check_prime(c): break
 
-    if c == save:
-      primes += 1
+    return 1 if c == save else 0
 
-  return primes
-
-print('Primes:', find_primes())
+print('Primes:', 1+sum(list(map(find_primes, [x for x in range(3, 1000000, 2)]))))
