@@ -15,9 +15,4 @@ def calculate(num):
     for i in str(num): s += int(i) ** 5
     return num if num == s else 0
 
-def find_fifths():
-    nums = [d for d in range(10, 1000000)]
-    nums = map(calculate, nums)
-    return sum(list(nums))
-
-print('Sum:', find_fifths())
+print('Sum:', sum(map(calculate, [d for d in range(10, 1000000)])))
