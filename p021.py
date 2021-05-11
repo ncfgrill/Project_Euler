@@ -12,14 +12,13 @@
 from math import ceil, sqrt
 
 def find_factors_sum(num):
-    factors = [1]
+    factors = {1}
 
     for f1 in range(2, ceil(sqrt(num)) + 1):
         if num % f1 == 0:
             f2 = num // f1
-            if f1 not in factors: factors.append(f1)
-            if f2 not in factors: factors.append(f2)
-    if num in factors: factors.remove(num)
+            factors.add(f1)
+            factors.add(f2)
     return sum(factors)
 
 def find_amicable():
