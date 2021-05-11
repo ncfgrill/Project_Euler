@@ -27,4 +27,4 @@ def get_sum(name):
 with open('p022_names.txt', 'r') as f:
     names = f.readline().split(',')
     names.sort()
-    print('Total:', sum(list(map(get_sum, names))))
+    print('Total:', sum(map(get_sum, names)))
