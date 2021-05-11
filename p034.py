@@ -19,4 +19,4 @@ def fact_sum(num):
         sub_sum += fact(int(j))
     return num if num == sub_sum else 0
 
-print('Sum:', sum(list(map(fact_sum, [x for x in range(10, 100000)]))))
+print('Sum:', sum(map(fact_sum, [x for x in range(10, 100000)])))
