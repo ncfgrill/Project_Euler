@@ -11,31 +11,24 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-names = []
-letters = {'A' : 1, 'B' : 2, 'C' : 3, 'D' : 4, 'E' : 5, 'F' : 6, 'G' : 7,
-           'H' : 8, 'I' : 9, 'J' : 10, 'K' : 11, 'L' : 12, 'M' : 13, 'N' : 14,
-           'O' : 15, 'P' : 16, 'Q' : 17, 'R' : 18, 'S' : 19, 'T' : 20, 'U' : 21,
-           'V' : 22, 'W' : 23, 'X' : 24, 'Y' : 25, 'Z' : 26}
+num, base = 0, ord('A') - 1
+
+def get_sum(name):
+    global num, base
+    
+    s, i = 0, 1
+    while name[i] != '"':
+        s += ord(name[i]) - base
+        i += 1
+    
+    num += 1
+    return s * num
 
 def read_file():
-  global names
-  f = open("p022_names.txt", "r")
-  names = f.readline().split(',')
-  names.sort()
-  f.close()
+    with open('p022_names.txt', 'r') as f:
+        names = f.readline().split(',')
+        names.sort()
+        sums = map(get_sums, names)
+        return sum(list(sums))
 
-def get_sum():
-  total = 0
-  for n in range(len(names)):
-    s, i = 0, 1
-    while names[n][i] != '"':
-      s += letters[names[n][i]]
-      i += 1
-    total += s * (n+1)
-  return total
-
-def get_total():
-  read_file()
-  print('Total:', get_sum())
-
-get_total()
+print('Total:', read_file())
