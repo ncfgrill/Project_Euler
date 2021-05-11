@@ -24,4 +24,4 @@ def find_palindromes(num):
     return num if str(num) == str(num)[::-1] and binary == binary[::-1] else 0
 
 # Only check odd numbers as even numbers always begin with 1 and end with 0
-print('Sum:', sum(list(map(find_palindromes, [x for x in range(1,1000000,2)]))))
+print('Sum:', sum(map(find_palindromes, [x for x in range(1,1000000,2)])))
