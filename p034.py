@@ -10,18 +10,13 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-from math import factorial as f
+from math import factorial as fact
 
-s = 0
-fact = [f(0), f(1), f(2), f(3), f(4), f(5), f(6), f(7), f(8), f(9)]
+def fact_sum(num):
+    sub_sum = 0
+    for j in str(num):
+        if num < fact(int(j)): break
+        sub_sum += fact(int(j))
+    return num if num == sub_sum else 0
 
-for i in range(10, 100000):
-  sub_sum = 0
-  for j in str(i):
-    if i < fact[int(j)]:
-      break
-    sub_sum += fact[int(j)]
-  if sub_sum == i:
-    s += i
-
-print('Sum:', s)
+print('Sum:', sum(list(map(fact_sum, [x for x in range(10, 100000)]))))
