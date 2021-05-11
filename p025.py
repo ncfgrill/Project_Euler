@@ -10,14 +10,11 @@
 #                                Author: ncfgrill                              #
 ################################################################################
 
-a, b, n = 1, 1, 2
+a, b, c, n = 1, 1, 2, 2
 
-while True:
-  c = a + b
-  n += 1
-  if len(str(c)) >= 1000:
-    break
-  a, b = b, c
+while len(str(c)) < 1000:
+    c = a + b
+    n += 1
+    a, b = b, c
 
 print('Index:', n)
-
