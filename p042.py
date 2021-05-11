@@ -9,11 +9,7 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-tri_nums, base = [], ord('A') - 1
-
-def get_tri():
-    global tri_nums
-    for n in range(1, 101): tri_nums.append(n*(n+1)//2)
+tri_nums, base = [(n*(n+1)//2) for n in range(1, 101)], ord('A') - 1
 
 def get_total(word):
     global base
@@ -29,5 +25,4 @@ def read_file():
         words = f.readline().split(',')
         return sum(list(map(get_total, words)))
 
-get_tri()
 print('Total:', find_total())
