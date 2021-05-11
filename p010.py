@@ -12,21 +12,12 @@
 from math import ceil, sqrt
 
 def check_prime(num):
-    if num <= 3:                        return num > 1
-    elif num % 6 != 1 and num % 6 != 5: return False
-    
+    if num <= 3:                        return num if num > 1 else 0
+    elif num % 6 != 1 and num % 6 != 5: return 0
+
     for i in range(2, ceil(sqrt(num)) + 1):
-        if num % i == 0: return False
+        if num % i == 0: return 0
 
-    return True
+    return num
 
-def sum_primes():
-    s, p = 2, 3
-
-    while p < 2000000:
-        if check_prime(p): s += p
-        p += 2
-
-    return s
-
-print('Sum:', sum_primes())
+print('Sum:', 2 + sum(list(map(check_prime, [i for i in range(3,2000000,2)]))))
