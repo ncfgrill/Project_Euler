@@ -21,7 +21,7 @@ def find_trip():
                 print('a =', a, 'b =', b, 'c =', c)
                 return a * b * c
             b += 1
-            c = 1000 - a - b
+            c -= 1
         a += 1
 
 print('a*b*c =', find_trip())
