@@ -14,11 +14,13 @@
 from math import inf
 
 pents = {n : (n * (3*n - 1)) // 2 for n in range(1, 2501)}
-pents_set, dist = set(pents), inf
+pents_set = set(pents.values())
 
-for j in range(1, len(pents) - 1):
-    for k in range(j+1, len(pents)):
-        s, d = pents[k] + pents[j], pents[k] - pents[j]
-        if s in pents_set and d in pents_set and d < dist: dist = d
+def pent_dist(p):
+    global pents, pent_set
 
-print('D:', dist)
+    s, d = pents[p[1]] + pents[p[0]], pents[p[1]] - pents[p[0]]
+    return d if s in pents_set and d in pents_set else inf
+
+print('D:', min(map(pent_dist, [(j, k) for j in range(1, len(pents) - 1)\
+                                       for k in range(j+1, len(pents))])))
