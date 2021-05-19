@@ -16,7 +16,7 @@ def find_factors(num):
     factors = []
     if num == 1: return [1]
 
-    for f1 in range(1, math.ceil(math.sqrt(num)) + 1):
+    for f1 in range(1, ceil(sqrt(num)) + 1):
         if num % f1 == 0:
             f2 = num // f1
             factors.append(f1)
