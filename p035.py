@@ -24,17 +24,13 @@ def circle_num(num):
     return int(num[1:] + num[0])
 
 def find_primes(p):
-    if '0' in str(p) or '2' in str(p) or\
-       '4' in str(p) or '6' in str(p) or '8' in str(p):
-        return 0
-    if not check_prime(p): return 0
+    if any(e in str(p) for e in '02468') or not check_prime(p): return 0
 
-    save = p
-    c = save
-    while True:
+    save, c = p, circle_num(str(p))
+    while c != save:
+        if not check_prime(c): break
         c = circle_num(str(c))
-        if c == save or not check_prime(c): break
 
     return 1 if c == save else 0
 
-print('Primes:', 1 + sum(map(find_primes, [x for x in range(3, 1000000, 2)])))
+print('Primes:', 1 + sum(map(find_primes, [x for x in range(3,1000000,2)])))
