@@ -9,6 +9,6 @@
 #                                Author: ncfgrill                              #
 ################################################################################
 
-from math import factorial
+from math import factorial as f
 
-print('Sum:', sum(int(d) for d in str(factorial(100))))
+print('Sum:', sum(int(d) for d in str(f(100))))
