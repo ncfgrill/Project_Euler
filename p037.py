@@ -23,28 +23,27 @@ def check_prime(num):
 
 def truncate(num):
     save = num
-  
-    #left-to-right
-    while len(num) > 1:
-        num = num[1:]
-        if not check_prime(int(num)): return False
 
-    num = save
+    #left-to-right
+    while len(num) > 0:
+        if not check_prime(int(num)): return False
+        num = num[1:]
+
+    num = save[0:-1]
 
     # right-to-left
-    while len(num) > 1:
-        num = num[0:-1]
+    while len(num) > 0:
         if not check_prime(int(num)): return False
+        num = num[0:-1]
 
     return True
 
 def find_primes():
     primes, d, s = 0, 11, 0
     while primes < 11:
-        if check_prime(d):
-            if truncate(str(d)):
-                primes += 1
-                s += d
+        if truncate(str(d)):
+            primes += 1
+            s += d
 
         d += 2
 
