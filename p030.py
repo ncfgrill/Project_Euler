@@ -10,7 +10,6 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-def calculate(num):
-    return num if num == sum(int(x) ** 5 for x in str(num)) else 0
-
-print('Sum:', sum(map(calculate, [d for d in range(10, 1000000)])))
+print('Sum:',
+      sum(map(lambda n: n if n == sum(int(c) ** 5 for c in str(n)) else 0,
+              [d for d in range(10, 1000000)])))
