@@ -13,10 +13,9 @@
 from math import ceil, sqrt
 
 def find_factors(num):
-    factors = set()
-    if num == 1: return 1
+    factors = {1, num}
 
-    for f1 in range(1, ceil(sqrt(num)) + 1):
+    for f1 in range(2, ceil(sqrt(num)) + 1):
         if num % f1 == 0:
             f2 = num // f1
             factors.add(f1)
