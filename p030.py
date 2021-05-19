@@ -11,8 +11,6 @@
 ################################################################################
 
 def calculate(num):
-    s = 0
-    for i in str(num): s += int(i) ** 5
-    return num if num == s else 0
+    return num if num == sum(int(x) ** 5 for x in str(num)) else 0
 
 print('Sum:', sum(map(calculate, [d for d in range(10, 1000000)])))
