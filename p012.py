@@ -13,16 +13,16 @@
 from math import ceil, sqrt
 
 def find_factors(num):
-    factors = []
-    if num == 1: return [1]
+    factors = set()
+    if num == 1: return 1
 
     for f1 in range(1, ceil(sqrt(num)) + 1):
         if num % f1 == 0:
             f2 = num // f1
-            factors.append(f1)
-            factors.append(f2)
+            factors.add(f1)
+            factors.add(f2)
 
-    return factors
+    return len(factors)
 
 def get_number():
     n_factors, num, inc = 0, 0, 1
@@ -30,7 +30,7 @@ def get_number():
     while n_factors <= 500:
         num += inc
         inc += 1
-        n_factors = len(find_factors(num))
+        n_factors = find_factors(num)
 
     return num
 
