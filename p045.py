@@ -23,8 +23,7 @@ def find_number():
     t, p, h = 286, 165, 143
     tria, pent, hexa = get_tria(t), get_pent(p), get_hexa(h)
 
-    while True:
-        if tria == pent and tria == hexa: break
+    while tria != pent or tria != hexa:
 
         while tria < pent or tria < hexa:
             t += 1
