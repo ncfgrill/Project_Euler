@@ -12,11 +12,6 @@
 
 from math import factorial as fact
 
-def fact_sum(num):
-    sub_sum = 0
-    for j in str(num):
-        if num < fact(int(j)): break
-        sub_sum += fact(int(j))
-    return num if num == sub_sum else 0
-
-print('Sum:', sum(map(fact_sum, [x for x in range(10, 100000)])))
+print('Sum:',
+      sum(map(lambda s: s if s == sum(fact(int(d)) for d in str(s)) else 0,
+              [x for x in range(10, 100000)])))
