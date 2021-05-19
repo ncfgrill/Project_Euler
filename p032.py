@@ -10,17 +10,18 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
+prods = set()
+
 def check_pan(m1, m2, p):
     return ''.join(sorted(m1 + m2 + p)) == '123456789'
 
-def find_sum():
-    prods = set()
+def find_sum(n):
+    p = n[0] * n[1]
+    if check_pan(str(n[0]), str(n[1]), str(p)) and p not in prods:
+        prods.add(p)
+        return p
+    return 0
 
-    for i in range(1, 99):
-        for j in range(123, 9877):
-            p = i * j
-            if check_pan(str(i), str(j), str(p)): prods.add(p)
-
-    return sum(prods)
-
-print('Sum:', find_sum());
+print('Sum:',
+      sum(map(find_sum,
+              [(i, j) for i in range(1, 99) for j in range(123, 9877)])));
