@@ -27,7 +27,7 @@ def evaluate(n, a, b):
 
 def find_primes():
     most, save_a, save_b = 0, 0, 0
-    for a in range(-999, 1000):
+    for a in range(-999, 1000, 2):
         for b in range(-999, 1000, 2):
             if a != 0:
                 m = abs(a) % abs(b) if abs(a) > abs(b) else abs(b) % abs(a)
