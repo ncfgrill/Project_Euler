@@ -2,6 +2,10 @@
 #                            P49: Prime permutations                           #
 ################################################################################
 #                                                                              #
+#   The sequence 1487, 4817, 8147, contains three primes, each increasing by   #
+#     3330 and each a permuation of one another. There is one other 4-digit    #
+#                             increasing sequence.                             #
+#                                                                              #
 #   What 12-digit number do you form by concatenating the three terms in this  #
 #                                  sequence?                                   #
 #                                                                              #
