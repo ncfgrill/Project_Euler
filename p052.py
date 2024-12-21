@@ -10,10 +10,6 @@
 #                              Author: ncfgrill                                #
 ################################################################################
 
-from datetime import datetime
-
-start = datetime.now()
-
 num = 1
 
 while True:
@@ -28,4 +24,3 @@ while True:
     num += 1
 
 print('Integer:', num)
-print(datetime.now() - start)
