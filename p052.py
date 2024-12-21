@@ -1,34 +1,31 @@
 ################################################################################
-#                            P52: Permuted Multiples                           #
+#                            P52: Permuted multiples                           #
 ################################################################################
 #                                                                              #
-#    It can be seen that the number, 125874, and its double, 251748, contain   #
-#              exactly the same digits, but in a different order.              #
-#                                                                              #
-#   Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x,   #
-#                            contain the same digit.                           #
+#    Find the smallest positive integer, x, such that 2x, 3x, 4x, 5x, and 6x   #
+#                            contain the same digits.                          #
 #                                                                              #
 ################################################################################
-#                       Problem found at projecteuler.net                      #
-#                                Author: ncfgrill                              #
+#                     Problem found at projecteuler.net                        #
+#                              Author: ncfgrill                                #
 ################################################################################
 
-from itertools import permutations
+from datetime import datetime
 
-def check_multiples(n):
-    perms = set(''.join(p) for p in permutations(n))
+start = datetime.now()
 
-    for m in range(2,7):
-        if str(m * int(n)) not in perms: return False
+num = 1
 
-    return True
+while True:
+    compare, tf = ''.join(sorted(str(num))), True
 
-def find_integer():
-    curr_int = 1
+    for i in range(2, 7):
+        if ''.join(sorted(str(i * num))) != compare:
+            tf = False
+            break
 
-    while not check_multiples(str(curr_int)):
-        curr_int += 1
+    if tf: break
+    num += 1
 
-    return curr_int
-
-print('Smallest positive integer:', find_integer())
+print('Integer:', num)
+print(datetime.now() - start)
