@@ -106,9 +106,9 @@ def better_hand(h1, h2):
 def find_winner(hands):
     return better_hand(hands[:5], hands[5:])
 
+p1 = 0
 with open('p054_poker.txt') as f:
-    p1 = 0
     for l in f.readlines():
         if find_winner(l.split(' ')): p1 += 1
 
-    print('P1 wins:', p1)
+print('P1 wins:', p1)
